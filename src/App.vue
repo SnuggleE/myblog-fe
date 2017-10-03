@@ -1,23 +1,30 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+   <transition name="route">
+     <router-view></router-view>
+   </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  watch: {
+    '$route'(to, from) {
+      console.log(to,from)
+      const toDepth = to.path.split('/').length
+      const fromDepth = from.path.split('/').length
+      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    }
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .route-enter-active, .route-leave-active {
+    transition: opacity 2s
+  }
+  .route-enter, .route-leave-to /* .route-leave-active in below version 2.1.8 */ {
+    opacity: 0
+  }
 </style>
