@@ -1,22 +1,41 @@
 <template>
-<div>
-    <h1>文章首页</h1>
-    <p>
-        <el-button type="success">首页</el-button>
-    </p>
-    <p>
-        <el-button type="primary" @click="gotoHello">Hello</el-button>
-    </p>
-    <p>
-        <router-link to="/hello">hello</router-link>
-    </p>
+<div class="container">
+    <el-row>
+      <el-col :span="22">
+        <h1>文章列表</h1>
+      </el-col>
+      <el-col :span="2">
+        <router-link to="/login">管理员登陆</router-link>
+      </el-col>
+    </el-row>
+  <el-table :data="articles" >
+    <el-table-column width="80px" type="index" label="序号"></el-table-column>
+    <el-table-column align="center" label="标题">
+      <template scope="scope">
+        <router-link :to="scope.row.path">{{scope.row.title}}</router-link>
+      </template>
+    </el-table-column>
+  </el-table>
 </div>
 </template>
 <script>
   export default {
     name: 'Index',
     data() {
-      return {}
+      return {
+        articles:[
+          {
+            id:1,
+            title:"地图投影",
+            path:'article/1'
+          },
+          {
+            id:1,
+            title:"地图投影",
+            path:'article/2'
+          }
+        ]
+      }
     },
     methods: {
       gotoHello(){
@@ -34,5 +53,7 @@
 
 </script>
 <style scoped>
-
+div.container{
+  width: ;
+}
 </style>
