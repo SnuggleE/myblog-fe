@@ -8,6 +8,8 @@ import blog from '@/components/blog'
 import home from '@/components/home'
 import admin from '@/components/admin/admin'
 import adminIndex from '@/components/admin/index'
+import addArticle from '@/components/admin/addArticle'
+import pictures from '@/components/admin/pictures'
 
 Vue.use(Router)
 
@@ -53,7 +55,17 @@ export default new Router({
           path:'/admin/index',
           name:'adminIndex',
           component:adminIndex
-        }
+        },
+        {
+          path:'/admin/add',
+          name:'addArticle',
+          component:addArticle
+        },
+        {
+          path:'/admin/pictures',
+          name:'pictures',
+          component:pictures
+        },
       ]
     },
     {
