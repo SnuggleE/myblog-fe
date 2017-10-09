@@ -16,6 +16,11 @@
       </template>
     </el-table-column>
   </el-table>
+  <el-row>
+    <el-col :span="6" :offset="6">
+      <router-link to="/home">作者主页</router-link>
+    </el-col>
+  </el-row>
 </div>
 </template>
 <script>
@@ -54,6 +59,6 @@
 </script>
 <style scoped>
 div.container{
-  width: ;
+
 }
 </style>

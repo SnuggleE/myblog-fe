@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'app',
+  name: 'blog',
   watch: {
     '$route'(to, from) {
       console.log(to,from)
@@ -20,12 +20,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .route-enter-active {
     transition: opacity 1s
   }
   .route-enter/* .route-leave-active in below version 2.1.8 */ {
     opacity: 0
   }
-
+  div#app{
+    width: 1020px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /*border: 1px solid #666;*/
+  }
 </style>

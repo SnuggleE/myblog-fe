@@ -1,39 +1,60 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 import Index from '@/components/index'
 import P404 from '@/components/p404'
 import articleDetail from '@/components/articleDetail'
 import Login from '@/components/login'
+import blog from '@/components/blog'
+import home from '@/components/home'
+import admin from '@/components/admin/admin'
+import adminIndex from '@/components/admin/index'
 
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
-      path: '/',
-      name: 'Hello',
-      redirect:'/index'
-    },
-    {
-      path:'/index',
-      name:'index',
-      component:Index
-    },
-    {
-      path:'/hello',
-      name:'welcome',
-      component:Hello
-    },
-    {
-      path:'/article/:articleId',
-      name:'articleDetail',
-      component:articleDetail
+      path:'/',
+      redirect:'/index',
+      name:'blog',
+      component:blog,
+      children:[
+        {
+          path:'/index',
+          name:'index',
+          component:Index
+        },
+        {
+          path:'/article/:articleId',
+          name:'articleDetail',
+          component:articleDetail
+        },
+        {
+          path:'/home',
+          name:'home',
+          component:home
+        }
+      ]
+
     },
     {
       path:'/login',
       name:'login',
       component:Login
+    },
+    {
+      path:'/admin',
+      name:'admin',
+      component:admin,
+      redirect:'/admin/index',
+      children:[
+        {
+          path:'/admin/index',
+          name:'adminIndex',
+          component:adminIndex
+        }
+      ]
     },
     {
       path:'*',

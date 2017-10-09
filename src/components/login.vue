@@ -13,7 +13,7 @@
     </el-row>
     <el-row>
       <el-col :span="12">
-        <el-button>登陆</el-button>
+        <el-button type="primary" @click="gotoAdmin">登陆</el-button>
       </el-col>
       <el-col :span="12">
         <el-button @click="cancelLogin">取消</el-button>
@@ -36,6 +36,9 @@
     methods: {
       cancelLogin(){
         this.$router.push('/index')
+      },
+      gotoAdmin(){
+        this.$router.push('/admin')
       }
 
     },
@@ -54,7 +57,7 @@ h3.warning-info{
 }
   div.login-box{
     width: 300px;
-    border: 1px solid #aaa;
+    border: 1px solid #eee;
     box-shadow:0 0 10px #999;
     padding: 20px;
 
