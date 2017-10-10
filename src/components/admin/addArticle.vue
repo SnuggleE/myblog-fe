@@ -41,6 +41,7 @@
 </template>
 <script>
   import VueMarkdown from 'vue-markdown'
+  import apiServer from '../../api/api-server'
   export default {
     name: 'adminIndex',
     components:{
@@ -67,9 +68,12 @@
 //        console.log(this.text)
       },
       submitArticle(){
-        console.log(this.text)
+        console.log(this.text);
+        apiServer.get_article(1)
+            .then(function (res) {
+              console.log(res);
+            })
       }
-
     },
     created() {
 
@@ -79,9 +83,6 @@
 
 </script>
 <style scoped>
-div.container{
-
-}
     div.markdown-container{
         padding: 12px;
         border: 1px dashed #aaa;
