@@ -1,4 +1,4 @@
-export const HOST='http://localhost/';
+export const HOST='http://localhost:8088/';
 
 export const TIME_OUT=10000;
 
